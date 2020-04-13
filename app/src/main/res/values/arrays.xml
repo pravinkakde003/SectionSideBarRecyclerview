@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <string-array name="dataArray">
+        <item>01</item>
+        <item>Isa Moses</item>
+        <item>Lacy Maynard</item>
+        <item>Louise Christensen</item>
+        <item>Aarav Hussain</item>
+        <item>Momina Boyer</item>
+        <item>Leanne Mcdougall</item>
+        <item>Layan Wong</item>
+        <item>Gilbert Leon</item>
+        <item>Giacomo North</item>
+        <item>Sakina Humphrey</item>
+        <item>Jimmie Mills</item>
+        <item>Darla Dodd</item>
+        <item>Fiza Mcdonald</item>
+
+
+        <item>Asa Moses</item>
+        <item>Bacy Maynard</item>
+        <item>Couise Christensen</item>
+        <item>Darav Hussain</item>
+        <item>Eomina Boyer</item>
+        <item>Feanne Mcdougall</item>
+        <item>Gayan Wong</item>
+        <item>Gilbert Leon</item>
+        <item>Giacomo North</item>
+        <item>Hakina Humphrey</item>
+        <item>Jimmie Mills</item>
+        <item>Iarla Dodd</item>
+        <item>Fiza Mcdonald</item>
+
+        <item>Jsa Moses</item>
+        <item>Kacy Maynard</item>
+        <item>Louise Christensen</item>
+        <item>Marav Hussain</item>
+        <item>Nomina Boyer</item>
+        <item>Oeanne Mcdougall</item>
+        <item>Payan Wong</item>
+        <item>Qilbert Leon</item>
+        <item>Riacomo North</item>
+        <item>Sakina Humphrey</item>
+        <item>Timmie Mills</item>
+        <item>Uarla Dodd</item>
+        <item>Viza Mcdonald</item>
+        <item>Wimmie Mills</item>
+        <item>Xarla Dodd</item>
+        <item>Yiza Mcdonald</item>
+        <item>Ziza Mcdonald</item>
+    </string-array>
+
+</resources>
