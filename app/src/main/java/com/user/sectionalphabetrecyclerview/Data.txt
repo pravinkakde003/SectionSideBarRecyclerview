@@ -1,0 +1,29 @@
+In ScanResultFragment
+
+  sideBar.setTextView(dialog)
+        sideBar.setOnTouchingLetterChangedListener(object :
+            SideBar.OnTouchingLetterChangedListener {
+            override fun onTouchingLetterChanged(s: String?) {
+                val position = resultListAdapter.getPositionForSection(s!![0].toInt())
+                if (position != -1) {
+                    layoutManager?.scrollToPositionWithOffset(position, 0)
+                }
+            }
+        })
+        sideBar.setParentView(allScanResultRecyclerView)
+
+
+
+        ---------------------------------------------------
+
+
+            fun getPositionForSection(section: Int): Int {
+                for (i in 0 until itemCount) {
+                    val sortStr = resultList[i].headerAlphabet
+                    val firstChar = sortStr!!.toUpperCase()[0]
+                    if (firstChar.toInt() == section) {
+                        return i
+                    }
+                }
+                return -1
+            }
