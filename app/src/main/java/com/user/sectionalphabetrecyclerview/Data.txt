@@ -27,3 +27,21 @@ In ScanResultFragment
                 }
                 return -1
             }
+
+---------------------------------------------------------------------
+
+    private fun checkOrderOfList(sourceDataList: MutableList<SortModel>?): MutableList<SortModel>? {
+        this.sourceDataList = sourceDataList
+        val tempList: MutableList<SortModel> = ArrayList()
+        val regex = Pattern.compile("[$&+,:;=\\\\?@#|/'<>.^*()%!-]")
+        val litr = sourceDataList!!.iterator()
+        while (litr.hasNext()) {
+            val element = litr.next()
+            if (regex.matcher(element.name).find() || CustomComparator.isNumber(element.name)) {
+                tempList.add(element)
+                litr.remove()
+            }
+        }
+        sourceDataList.addAll(tempList)
+        return sourceDataList
+    }
