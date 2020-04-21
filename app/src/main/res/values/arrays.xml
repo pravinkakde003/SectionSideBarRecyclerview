@@ -2,7 +2,21 @@
 <resources>
 
     <string-array name="dataArray">
+        <item>5</item>
+        <item>002</item>
+        <item>8</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+        <item>6</item>
+        <item>*1</item>
+        <item>#1</item>
         <item>01</item>
+        <item>001</item>
+        <item>02</item>
+        <item>*1</item>
+        <item>#1</item>
+        <item>#A to Z</item>
         <item>Isa Moses</item>
         <item>Lacy Maynard</item>
         <item>Louise Christensen</item>
@@ -16,8 +30,8 @@
         <item>Jimmie Mills</item>
         <item>Darla Dodd</item>
         <item>Fiza Mcdonald</item>
-
-
+        <item>Lacy1</item>
+        <item>Lacy#</item>
         <item>Asa Moses</item>
         <item>Bacy Maynard</item>
         <item>Couise Christensen</item>
@@ -49,6 +63,7 @@
         <item>Xarla Dodd</item>
         <item>Yiza Mcdonald</item>
         <item>Ziza Mcdonald</item>
+
     </string-array>
 
 </resources>

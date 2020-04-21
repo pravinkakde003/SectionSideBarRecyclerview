@@ -11,6 +11,9 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ *  Sidebar is custom class used to add/attach index bar (A to Z) to recyclerview.
+ */
 class SideBar : View {
     private var onTouchingLetterChangedListener: OnTouchingLetterChangedListener? = null
     private var choose = -1
@@ -19,21 +22,24 @@ class SideBar : View {
     private var parent: RecyclerView? = null
 
     constructor(context: Context?) : super(context) {}
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {}
+//    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}
+//    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {}
 
     fun setTextView(textDialog: TextView?) {
         mTextDialog = textDialog
     }
 
+    /**
+     * @param canvas object
+     * Draw the view on canvas
+     */
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        val height = height
-        val width = width
+//        val height = height
+//        val width = width
         val singleHeight = height / b.size
         for (i in b.indices) {
             paint.color = Color.rgb(33, 65, 98)
-            paint.textSize = 30f
             paint.typeface = Typeface.DEFAULT_BOLD
             paint.isAntiAlias = true
             paint.isDither = true
@@ -42,22 +48,25 @@ class SideBar : View {
                 paint.isFakeBoldText = true
             }
             //            To show bar from top
-//            float xPos = width / 2 - paint.measureText(b[i]) / 2;
-//            float yPos = singleHeight * i + singleHeight;
-//            canvas.drawText(b[i], xPos, yPos, paint);
-            setBackgroundResource(R.drawable.shape_sidebar_bg)
-            //            To show bar from center
-            val scaledWidth = indWidth * resources.displayMetrics.density
-            val scaledHeight = indHeight * resources.displayMetrics.density
-            val sx = width - this.paddingRight - (1.2 * scaledWidth).toFloat()
-            val sy = ((height - scaledHeight * b.size) / 2.0).toFloat()
-            canvas.drawText(b[i],
-                    sx + paint.textSize / 2, sy + parent!!.paddingTop
-                    + scaledHeight * (i + 1), paint)
+            float xPos = width / 2 - paint.measureText(b[i]) / 2;
+            float yPos = singleHeight * i + singleHeight;
+            canvas.drawText(b[i], xPos, yPos, paint);
+//            setBackgroundResource(R.drawable.shape_sidebar_bg)
+//            //            To show bar from center
+//            val scaledWidth = indWidth * resources.displayMetrics.density
+//            val scaledHeight = indHeight * resources.displayMetrics.density
+//            val sx = width - this.paddingRight - (1.2 * scaledWidth).toFloat()
+//            val sy = ((height - scaledHeight * b.size) / 2.0).toFloat()
+//            canvas.drawText(b[i],
+//                    sx + paint.textSize / 2, sy + parent!!.paddingTop
+//                    + scaledHeight * (i + 1), paint)
             paint.reset()
         }
     }
 
+    /**
+     * Track the touch event
+     */
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         val action = event.action
         val y = event.y
@@ -103,6 +112,9 @@ class SideBar : View {
         fun onTouchingLetterChanged(s: String?)
     }
 
+    /**
+     *   companion object for static A to Z
+     */
     companion object {
         var b = arrayOf("A", "B", "C", "D", "E", "F", "G", "H", "I",
                 "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",

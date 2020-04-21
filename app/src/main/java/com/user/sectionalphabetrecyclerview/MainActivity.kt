@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         Collections.sort(sourceDataList, customComparator)
         manager = LinearLayoutManager(this)
         manager!!.orientation = LinearLayoutManager.VERTICAL
-        recyclerView.setLayoutManager(manager)
+        recyclerView.layoutManager = manager
         adapter = IndexBarAdapter(this, sourceDataList)
         recyclerView.adapter = adapter
         adapter!!.setOnItemClickListener(object : IndexBarAdapter.OnItemClickListener {
@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
             }
             mSortList.add(sortModel)
         }
+        mSortList.sortBy { it.name }
         return mSortList
     }
 }
