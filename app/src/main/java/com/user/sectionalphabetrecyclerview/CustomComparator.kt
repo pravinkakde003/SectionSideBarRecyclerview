@@ -14,7 +14,7 @@ class CustomComparator : Comparator<DataModel> {
     }
 
     companion object {
-        private fun isNumber(s: String): Boolean {
+        public fun isNumber(s: String): Boolean {
             return s.matches("[-+]?\\d*\\.?\\d+".toRegex())
         }
 

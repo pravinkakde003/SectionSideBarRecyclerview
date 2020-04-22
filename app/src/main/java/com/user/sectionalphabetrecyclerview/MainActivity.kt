@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.user.sectionalphabetrecyclerview.SideBar.OnTouchingLetterChangedListener
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
     var manager: LinearLayoutManager? = null
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         })
         sideBar.setParentView(recyclerView)
         sourceDataList = filledData(resources.getStringArray(R.array.dataArray))
-        Collections.sort(sourceDataList, customComparator)
+        //  Collections.sort(sourceDataList, customComparator)
         manager = LinearLayoutManager(this)
         manager!!.orientation = LinearLayoutManager.VERTICAL
         recyclerView.layoutManager = manager
@@ -57,9 +58,27 @@ class MainActivity : AppCompatActivity() {
             } else {
                 sortModel.header = "#"
             }
+
             mSortList.add(sortModel)
         }
         mSortList.sortBy { it.name }
+        checkOrderOfList(mSortList)
         return mSortList
+    }
+
+    private fun checkOrderOfList(sourceDataList: MutableList<DataModel>?): MutableList<DataModel>? {
+        this.sourceDataList = sourceDataList
+        val tempList: MutableList<DataModel> = ArrayList()
+        val regex = Pattern.compile("[$&+,:;=\\\\?@#|/'<>.^*()%!-]")
+        val litr = sourceDataList!!.iterator()
+        while (litr.hasNext()) {
+            val element = litr.next()
+            if (regex.matcher(element.name!!.get(0).toString()).find() || CustomComparator.isNumber(element.name!!.get(0).toString())) {
+                tempList.add(element)
+                litr.remove()
+            }
+        }
+        sourceDataList.addAll(tempList)
+        return sourceDataList
     }
 }
